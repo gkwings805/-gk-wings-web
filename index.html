@@ -26,7 +26,13 @@ h2{color:#ffd400;margin-top:6px}.flavors,.choices{display:grid;grid-template-col
 </head>
 <body>
 <header><div class="logo">GK</div><div class="wings">WINGS</div></header>
+<div style="text-align:center; margin:10px 0 5px;">
 
+  <button onclick="setLanguage('es')" style="padding:8px 12px;">🇲🇽 Español</button>
+
+  <button onclick="setLanguage('en')" style="padding:8px 12px;">🇺🇸 English</button>
+
+</div>
 <section class="hero">
   <h1>ALITAS QUE TE ENCANTAN</h1>
   <p>Crujientes, jugosas y llenas de sabor.</p>
@@ -196,7 +202,31 @@ function sendOrder(){
   window.location.href=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
 }
 
-render();
+render(); function setLanguage(lang) {
+
+  const heroTitle = document.querySelector('.hero h1');
+
+  const heroText = document.querySelector('.hero p');
+
+  if (lang === 'en') {
+
+    document.documentElement.lang = 'en';
+
+    heroTitle.textContent = 'WINGS YOU’LL LOVE';
+
+    heroText.textContent = 'Crispy, juicy and full of flavor.';
+
+  } else {
+
+    document.documentElement.lang = 'es';
+
+    heroTitle.textContent = 'ALITAS QUE TE ENCANTAN';
+
+    heroText.textContent = 'Crujientes, jugosas y llenas de sabor.';
+
+  }
+
+}
 </script>
 </body>
 </html>
