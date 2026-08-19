@@ -111,7 +111,7 @@ h2{color:#ffd400;margin-top:6px}.flavors,.choices{display:grid;grid-template-col
   <span class="label">Notas del pedido (opcional)</span>
   <textarea class="field" id="notes" rows="3" placeholder="Ejemplo: tocar la puerta, sin servilletas, etc."></textarea>
 
-  <button class="btn" type="button" onclick="sendOrder()">📲 ENVIAR PEDIDO POR WHATSAPP</button>
+  <button class="btn" id="sendBtn" type="button" onclick="sendOrder()">📲 ENVIAR PEDIDO POR WHATSAPP</button>
   <p class="small">El pedido se enviará a GK Wings al 805-412-8916 para confirmación.</p>
 </div>
 
@@ -260,6 +260,7 @@ function setLanguage(lang) {
 
 
 }
+document.getElementById('sendBtn').textContent = es ? '📲 ENVIAR PEDIDO POR WHATSAPP' : '📲 SEND ORDER VIA WHATSAPP';  
 render();
 </script>
 </body>
