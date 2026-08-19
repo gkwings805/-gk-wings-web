@@ -201,32 +201,66 @@ function sendOrder(){
   ].filter(Boolean).join('\n');
   window.location.href=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
 }
+function setLanguage(lang) {
 
-render(); function setLanguage(lang) {
+  document.documentElement.lang = lang;
 
-  const heroTitle = document.querySelector('.hero h1');
+  const es = lang === 'es';
 
-  const heroText = document.querySelector('.hero p');
+  document.querySelector('.hero h1').textContent =
 
-  if (lang === 'en') {
+    es ? 'ALITAS QUE TE ENCANTAN' : "WINGS YOU'LL LOVE";
 
-    document.documentElement.lang = 'en';
+  document.querySelector('.hero p').textContent =
 
-    heroTitle.textContent = 'WINGS YOU’LL LOVE';
+    es ? 'Crujientes, jugosas y llenas de sabor.' :
 
-    heroText.textContent = 'Crispy, juicy and full of flavor.';
+         'Crispy, juicy and full of flavor.';
 
-  } else {
+  const h2 = document.querySelectorAll('h2');
 
-    document.documentElement.lang = 'es';
+  h2[0].textContent = es ? 'Elige tu sabor' : 'Choose your flavor';
 
-    heroTitle.textContent = 'ALITAS QUE TE ENCANTAN';
+  h2[1].textContent = es ? 'Cantidad' : 'Quantity';
 
-    heroText.textContent = 'Crujientes, jugosas y llenas de sabor.';
+  h2[2].textContent = es ? 'Tu pedido' : 'Your order';
 
-  }
+  h2[3].textContent = es ? '¿Cómo recibirás tu pedido?' : 'How will you receive your order?';
+
+  const labels = document.querySelectorAll('.label');
+
+  labels[0].textContent = es ? 'Nombre' : 'Name';
+
+  labels[1].textContent = es ? 'Teléfono' : 'Phone';
+
+  labels[2].textContent = es ? 'Dirección de entrega' : 'Delivery address';
+
+  labels[3].textContent = es ? 'Forma de pago' : 'Payment method';
+
+  labels[4].textContent = es ? 'Notas del pedido (opcional)' : 'Order notes (optional)';
+
+  document.getElementById('name').placeholder =
+
+    es ? 'Tu nombre' : 'Your name';
+
+  document.getElementById('phone').placeholder =
+
+    es ? 'Tu número de teléfono' : 'Your phone number';
+
+  document.getElementById('address').placeholder =
+
+    es ? 'Dirección de entrega' : 'Delivery address';
+
+  document.getElementById('notes').placeholder =
+
+    es ? 'Ejemplo: tocar la puerta, sin servilletas, etc.' :
+
+         'Example: knock on the door, no napkins, etc.';
+
+
 
 }
+render();
 </script>
 </body>
 </html>
